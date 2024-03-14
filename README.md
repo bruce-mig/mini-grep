@@ -8,7 +8,7 @@ It is similar to other popular search tools like grep.
 
 Command line arguments are passed after the `--`.
 ```bash
-$ cargo run -- <query> <filepath>
+$ cargo run -- <query> <filepath> > <output-file>
 ```
 - The first argument `<query>` holds the string to search for.
 - The second argument `<filepath>` is the path of the .txt file to conduct the search.
@@ -16,23 +16,15 @@ $ cargo run -- <query> <filepath>
 ### Example Usage
 
 ```bash
-$ cargo run -- to poem.txt
-    Finished dev [unoptimized + debuginfo] target(s) in 23.35s
-     Running `target/debug/minigrep to poem.txt`
-Are you nobody, too?
-How dreary to be somebody!
+$ cargo run -- to poem.txt > output.txt
 ```
 
 ### Environment variables
 
-Toggle between case sensitive and case insensitive search by passing the `IGNORE_CASE` environment variable.
+Toggle between case sensitive and case insensitive search by passing the `IGNORE_CASE` environment variable.  
 
 ```bash
-$ IGNORE_CASE=1 cargo run -- to poem.txt
-    Finished dev /[unoptimized + debuginfo] target(s) in 0.01s
-     Running `target/debug/minigrep to poem.txt`
-Are you nobody, too?
-How dreary to be somebody!
-To tell your name the livelong day
-To an admiring bog!
+$ IGNORE_CASE=1 cargo run -- <query> <filepath> > <output-file>
 ```
+
+Set environment variables are valid for the duration of the current terminal session.
